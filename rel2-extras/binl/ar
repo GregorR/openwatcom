@@ -13,8 +13,7 @@ do
     CMDC=${CMD:$i:1}
     case "$CMDC" in
         -) ;;
-        r) ;;
-        u) ;;
+        [ruq]) ;;
         c)
             WOPT="$WOPT -n"
             ;;
