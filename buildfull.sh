@@ -84,6 +84,12 @@ buildd mad
 
 cd ..
 
+# Copy stubs from binw to binl
+cp -f rel2/binw/*stub* rel2/binl/
+
+# Copy extras
+cp -f rel2-extras/binl/* rel2/binl/
+
 # Then make a use script for convenience
 echo '#!/bin/bash
 ORIGDIR=`pwd`
