@@ -81,3 +81,18 @@ builder rel2 || die 'Failed to build world'
 buildd w32loadr
 buildd dip
 buildd mad
+
+cd ..
+
+# Then make a use script for convenience
+echo '#!/bin/bash
+ORIGDIR=`pwd`
+cd `dirname "$BASH_SOURCE"`
+WATCOM=`pwd`
+export WATCOM
+cd "$ORIGDIR"
+unset ORIGDIR
+PATH="$WATCOM/binl:$PATH"
+export PATH
+INCLUDE="$WATCOM/lh"
+export INCLUDE' > rel2/use.sh
