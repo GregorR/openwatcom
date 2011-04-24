@@ -21,7 +21,7 @@ objs =                  &
 
 !ifdef bootstrap
 # awful hack to link this executable; if you know how to do this right, please do!
-cl = g++
+cl = g++ -m32
 !endif
 
 !include exetarg.mif

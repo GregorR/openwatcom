@@ -13,10 +13,10 @@ if [ ! -f $DEVDIR/build/binl/wtouch ]; then
     cp -p `which touch` $DEVDIR/build/binl/wtouch
 fi
 cd bld/wmake
-$MAKE -f gnumake
+$MAKE -f gnumake CC="gcc -m32"
 mkdir -p ../builder/$OBJDIR
 cd ../builder/$OBJDIR
-wmake -h -f ../linux386/makefile builder.exe bootstrap=1
+wmake -h -f ../linux386/makefile builder.exe bootstrap=1 CC="gcc -m32"
 cd ../..
 export BUILDMODE=bootstrap
 builder rel2 os_linux

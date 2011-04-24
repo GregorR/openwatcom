@@ -97,13 +97,13 @@ wcl_util_opts = $(def_fpu_flags_$(host_os)_$(host_cpu)) -ox -w4 -fe=$^@
 !ifdef __LINUX__
 !ifdef bootstrap
 
-cc = gcc
-cpp = gcc
+cc = gcc -m32
+cpp = gcc -m32
 cl = $(cc)
 bld_incs = $(bld_extra_incs) -I$(watcom_dir)/h
-bld_cl = gcc $(bld_incs)
-bld_cc = gcc $(bld_incs)
-bld_link = gcc
+bld_cl = gcc -m32 $(bld_incs)
+bld_cc = gcc -m32 $(bld_incs)
+bld_link = gcc -m32
 librarian = ar
 libflags = crs $^@
 
