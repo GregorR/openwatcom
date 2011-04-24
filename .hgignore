@@ -91,7 +91,6 @@ bld/plustest
 bld/pmake
 bld/posix
 bld/rcsdll
-bld/re2c
 bld/redist
 bld/rtdll
 bld/sdk
@@ -142,6 +141,20 @@ bld/build/binp
 bld/build/lang.ctl
 bld/build/mif
 bld/build/server
+
+# expanded bld/re2c
+bld/re2c/boot.ctl
+bld/re2c/bootmake
+bld/re2c/bootstrp
+bld/re2c/cpp
+bld/re2c/dos386
+bld/re2c/h
+bld/re2c/lang.ctl
+bld/re2c/linux386
+bld/re2c/nt386
+bld/re2c/ntaxp
+bld/re2c/os2386
+bld/re2c/prereq.ctl
 
 # expanded bld/w32api
 bld/w32api/def2lbc.awk
