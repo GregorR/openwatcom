@@ -96,3 +96,15 @@ PATH="$WATCOM/binl:$PATH"
 export PATH
 INCLUDE="$WATCOM/lh"
 export INCLUDE' > rel2/use.sh
+
+echo '#!/bin/bash
+ORIGDIR=`pwd`
+cd `dirname "$BASH_SOURCE"`
+WATCOM=`pwd`
+export WATCOM
+cd "$ORIGDIR"
+unset ORIGDIR
+PATH="$WATCOM/binl:$PATH"
+export PATH
+INCLUDE="$WATCOM/h"
+export INCLUDE' > rel2/usedos.sh
