@@ -24,6 +24,8 @@ zipup-rel.cmd
 zipup-rel.sh
 zipup.sh
 
+rel2
+
 # expanded bld
 bld/appwiz
 bld/as
