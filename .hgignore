@@ -2,7 +2,6 @@ bat
 bootclean.sh
 build.cmd
 buildrex.cmd
-build.sh
 clean.sh
 cmnvars.bat
 cmnvars.cmd
@@ -36,12 +35,15 @@ bld/bmp2eps
 bld/boot.ctl
 bld/brinfo
 bld/browser
-bld/build
+bld/build.lo1
+bld/build.log
 bld/builder
 bld/causeway
 bld/cc
 bld/cfloat
 bld/cg
+bld/clean.lo1
+bld/clean.log
 bld/clib
 bld/cmdedit
 bld/comp_cfg
@@ -131,7 +133,17 @@ bld/wtouch
 bld/wv
 bld/yacc
 
-# expanded w32api
+# expanded bld/build
+bld/build/axpnt
+bld/build/bin
+bld/build/binl
+bld/build/binnt
+bld/build/binp
+bld/build/lang.ctl
+bld/build/mif
+bld/build/server
+
+# expanded bld/w32api
 bld/w32api/def2lbc.awk
 bld/w32api/files.dat
 bld/w32api/include
