@@ -88,7 +88,11 @@ cd ..
 cp -f rel2/binw/*stub* rel2/binl/
 
 # Copy extras
-cp -f rel2-extras/binl/* rel2/binl/
+cp -f rel2-extras/binl/* rel2/binl/ &&
+chmod 0755 rel2/binl/{owar,owranlib} &&
+ln -sf owar rel2/binl/ar &&
+ln -sf owranlib rel2/binl/ranlib ||
+die 'Failed to copy rel2-extras'
 
 # Then make a use script for convenience
 echo '#!/bin/bash
