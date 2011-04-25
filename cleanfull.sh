@@ -14,6 +14,9 @@ rmobj() {
 . setvars.sh
 cd bld
 
+pushd w32loadr && builder clean ; popd
+pushd dip && builder clean ; popd
+pushd mad && builder clean ; popd
 builder clean
 rm -f build/binl/{builder,wcc386,wcl,wlink,wpp,wpp386,wstrip,wstub.exe,wtouch}
 rm -f re2c/linux386/re2c.{exe,sym}
