@@ -7,6 +7,7 @@ rel2:
 
 clean:
 	bash cleanfull.sh
+	rm -rf rel2/
 
 install:
 	bash dist.sh "$(DESTDIR)"

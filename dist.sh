@@ -9,12 +9,18 @@ die() {
     exit 1
 }
 
+DESTDIR=.
+if [ "$1" ]
+then
+    DESTDIR="$1"
+fi
+
 # make the root
-mkdir usr || die 'Failed to mkdir usr'
+mkdir "$DESTDIR"/usr || die 'Failed to mkdir usr'
 
 # we'll put rel2 under usr/lib/openwatcom...
-mkdir -p usr/lib &&
-cp -af rel2 usr/lib/$OW ||
+mkdir -p "$DESTDIR"/usr/lib &&
+cp -af rel2 "$DESTDIR"/usr/lib/$OW ||
 die 'Failed to copy rel2 to usr/lib'
 
 # now make a wrapper script for all the commands
@@ -35,17 +41,17 @@ then
     export INCLUDE
 fi
 
-exec $WATCOM/binl/$SCR "$@"' > usr/lib/$OW/$wname || die 'Failed to install '$wname
-    chmod 0755 usr/lib/$OW/$wname || die 'Failed to make '$wname' +x'
+exec $WATCOM/binl/$SCR "$@"' > "$DESTDIR"/usr/lib/$OW/$wname || die 'Failed to install '$wname
+    chmod 0755 "$DESTDIR"/usr/lib/$OW/$wname || die 'Failed to make '$wname' +x'
 }
 
 mkwrapper wrapper 'SCR=`basename "$0"`' 'INCLUDE="$WATCOM/lh"'
 mkwrapper dos-wrapper 'SCR=`basename "$0"`; SCR=${SCR/dos-}' 'INCLUDE="$WATCOM/h"'
 
 # now install the individual wrappers
-mkdir -p usr/bin
+mkdir -p "$DESTDIR"/usr/bin
 for i in $CMD
 do
-    ln -s ../lib/$OW/wrapper usr/bin/$i || die 'Failed to install '$i
-    ln -s ../lib/$OW/dos-wrapper usr/bin/dos-$i || die 'Failed to install dos-'$i
+    ln -s ../lib/$OW/wrapper "$DESTDIR"/usr/bin/$i || die 'Failed to install '$i
+    ln -s ../lib/$OW/dos-wrapper "$DESTDIR"/usr/bin/dos-$i || die 'Failed to install dos-'$i
 done
